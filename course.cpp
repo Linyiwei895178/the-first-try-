@@ -2129,54 +2129,509 @@
 //     test2();
 //     return 0;
 // }
+//
+// #include <iostream>
+// using namespace std;
+//
+// class Person1
+// {
+//     public:
+//     void showPerson1()
+//     {
+//         cout << "Person1 show" << endl;
+//     }
+// };
+//
+// class Person2
+// {
+//     public:
+//     void showPerson2()
+//     {
+//         cout << "Person2 show" << endl;
+//     }
+// };
+//
+// template<class T>
+// class MyClass
+// {
+//     public:
+//
+//     T obj;
+//
+//     void func1()
+//     {
+//         obj.showPerson1();
+//     }
+//
+//     void func2()
+//     {
+//         obj.showPerson2();
+//     }
+// };
+//
+// void test1()
+// {
+//     MyClass<Person1> m;
+//     m.func1();
+//     // m.func2();
+// }
+// int main()
+// {
+//     test1();
+//     return 0;
+// }
+//
+// #include <iostream>
+// using namespace std;
+//
+// class Person1
+// {
+// public:
+//     void showPerson1()
+//     {
+//         cout << "Person1 show" << endl;
+//     }
+// };
+//
+// class Person2
+// {
+// public:
+//     void showPerson2()
+//     {
+//         cout << "Person2 show" << endl;
+//     }
+// };
+//
+// template<class T>
+// class Myclass
+// {
+// public:
+//     T obj;
+//
+//     void func1()
+//     {
+//         obj.showPerson1();
+//     }
+//
+//     void func2()
+//     {
+//         obj.showPerson2();
+//     }
+// };
+//
+// void test1()
+// {
+//     Myclass<Person1> m;
+//     m.func1();
+//     // m.func2();
+// }
+//
+// int main()
+// {
+//     test1();
+//     return 0;
+// }
+//
+// #include <iostream>
+// using namespace std;
+//
+// template<class T1, class T2>
+// class Person
+// {
+// public:
+//
+//     Person(T1 name, T2 age)
+//     {
+//         this->m_Name = name;
+//         this->m_Age = age;
+//     }
+//
+//     void showPerson()
+//     {
+//         cout << "name: " << this->m_Name << endl << "age: " << this->m_Age << endl;
+//     }
+//
+//     T1 m_Name;
+//     T2 m_Age;
+// };
+//
+// //the most common way to use!!!
+// void printPerson1(Person<string, int> &p)
+// {
+//     p.showPerson();
+// }
+//
+// template<class T1, class T2>
+// void printPerson2(Person<T1, T2> &p)
+// {
+//     p.showPerson();
+//     cout << "T1: " << typeid(T1).name() <<endl;
+//     cout << "T2: " << typeid(T2).name() <<endl;
+// }
+//
+// template<class T>
+// void printPerson3(T &p)
+// {
+//     p.showPerson();
+//     printPerson3(p);
+// }
+//
+// void test1()
+// {
+//     Person<string, int>p("wukong", 100);
+//     printPerson1(p);
+// }
+//
+// void test2()
+// {
+//     Person<string, int>p("bajie", 90);
+//     printPerson2(p);
+// }
+//
+// void test3()
+// {
+//     Person<string, int> p("tangseng", 30);
+//     p.showPerson();
+// }
+//
+// int main()
+// {
+//     test1();
+//     test2();
+//     test3();
+//     return 0;
+// }
+//
+//
+// #include <iostream>
+// using namespace std;
+//
+// template<class T>
+// class Base
+// {
+//     T m;
+// };
+//
+// class Son : public Base<int>
+// {
+//     //必须知道父类中的T类型，才能继承给子类
+//
+// };
+//
+// void test1()
+// {
+//     Son s1;
+// }
+//
+// template<class T1, class T2>
+// class Son2 : public Base<T2>
+// {
+// public:
+//     Son2()
+//     {
+//         cout << "T1 type: " << typeid(T1).name() << typeid(T1).name() << endl;
+//         cout << "T2 type: " << typeid(T1).name() << typeid(T2).name() << endl;
+//     }
+//     T1 obj;
+// };
+//
+// void test2()
+// {
+//     Son2<int, char>S2;
+// }
+//
+// int main()
+// {
+//     test2();
+//     return 0;
+// }
+//
+//
+//
+//
+// #include <iostream>
+// using namespace std;
+//
+// template<class T1, class T2>
+// class Person
+// {
+// public:
+//      Person(T1 name, T2 age);
+// //     {
+// //         this->m_Name = name;
+// //         this->m_Age = age;
+// //     }
+//     //
+//     void showPerson();
+//     // {
+//     //     cout << "Name: " << this->m_Name << endl << "Age: " << this->m_Age << endl;
+//     // }
+//
+//     T1 m_Name;
+//     T2 m_Age;
+// };
+//
+// template<class T1, class T2>
+// Person<T1, T2>::Person(T1 name, T2 age)
+// {
+//     this->m_Name = name;
+//     this->m_Age = age;
+// }
+//
+// template<class T1, class T2>
+// void Person<T1, T2>::showPerson()
+// {
+//     cout << "Name: " << this->m_Name << endl << "Age: " << this->m_Age << endl;
+// }
+//
+// void test1()
+// {
+//     Person<string, int> p("tom", 30);
+//     p.showPerson();
+// }
+//
+// int main()
+// {
+//     test1();
+//     return 0;
+// }
 
-#include <iostream>
-using namespace std;
+// #include <iostream>
+// using namespace std;
 
-class Person1
-{
-    public:
-    void showPerson1()
-    {
-        cout << "Person1 show" << endl;
-    }
-};
+// template<class T1, class T2>
+// class Person
+// {
+// public:
+//     Person(T1 name, T2 age);
 
-class Person2
-{
-    public:
-    void showPerson2()
-    {
-        cout << "Person2 show" << endl;
-    }
-};
+//     void showPerson();
 
-template<class T>
-class MyClass
-{
-    public:
+//     T1 m_Name;
+//     T2 m_Age;
+// };
 
-    T obj;
+// template<class T1, class T2>
+// Person<T1, T2>::Person(T1 name, T2 age)
+// {
+//     this->m_Name = name;
+//     this->m_Age = age;
+// }
 
-    void func1()
-    {
-        obj.showPerson1();
-    }
+// template<class T1, class T2>
+// void Person<T1, T2>::showPerson()
+// {
+//     cout << "name: " << this->m_Name << " age: " << this->m_Age << endl;
+// }
 
-    void func2()
-    {
-        obj.showPerson2();
-    }
-};
+// void test1()
+// {
+//     Person <string, int>p("jerry", 18);
+//     p.showPerson();
+// }
 
-void test1()
-{
-    MyClass<Person1> m;
-    m.func1();
-    // m.func2();
-}
-int main()
-{
-    test1();
-    return 0;
-}
+// int main()
+// {
+//     test1();
+//     return 0;
+// }
+
+// #include <iostream>
+// using namespace std;
+
+// int main()
+// {
+//     cout << " hello world , this is my first program in cursor" << endl;
+//     return 0;
+// }
+
+//类模板与函数模板的区别
+// #include "person.hpp"
+// #include <iostream>
+// #include <string>
+// using namespace std;
+
+// // template<class T1, class T2>
+// // class Person 
+// // {
+// // public:
+// //     Person(T1 name, T2 age);
+
+// //     void showPerson();
+
+// //     T1 m_Name;
+// //     T2 m_Age;
+    
+// // };
+
+// // template<class T1, class T2>
+// // Person<T1, T2>::Person(T1 name, T2 age)
+// // {
+// //     this->m_Name = name;
+// //     this->m_Age = age;
+// // }
+
+// // template<class T1, class T2>
+// // void Person<T1, T2>::showPerson()
+// // {
+// //     cout << "name: " << this->m_Name << endl <<  "age: " << this->m_Age << endl;
+// // }
+
+// void test1()
+// {
+//     Person<string, int> p("jerry", 18);
+//     p.showPerson();
+// }
+
+// int main()
+// {
+//     test1();
+//     return 0;
+// } 
+
+// #include <iostream>
+// using namespace std;
+
+// template<class T1, class T2>
+// class Person;
+
+// template<class T1, class T2>
+// void printPerson2(Person<T1, T2> p)
+// {
+//     cout << "Name2: " << p.m_Name << endl << "Age: " << p.m_Age << endl; 
+// }
+
+// template<class T1, class T2>
+// class Person
+// {
+//     //全局函数类内实现
+//     friend void printPerson(Person<T1, T2> p)
+//     {
+//         cout << "Name: " << p.m_Name << endl << "Age: " << p.m_Age << endl; 
+//     }
+
+//     friend void printPerson2<>(Person<T1, T2> p);
+// public:
+//     Person(T1 name, T2 age)
+//     {
+//         this->m_Name = name;
+//         this->m_Age = age;
+//     }
+
+// private:
+
+//     T1 m_Name;
+//     T2 m_Age;
+// };
+
+
+// void test1()
+// {
+//     Person<string, int> p("Tom", 20);
+
+//     printPerson(p);
+//     printPerson2(p);
+// }
+
+
+// int main()
+// {
+//     test1();
+
+//     return 0;
+// }
+
+// #include <iostream>
+// #include "MyArray.hpp"
+// using namespace std;
+
+// void printIntArray(MyArray<int>& arr)
+// {
+
+//     for (int i = 0; i < arr.getSize(); i++) 
+//     {
+//         cout << arr[i] << endl;    
+//     }
+// }
+
+
+// void test1()
+// {
+//     MyArray <int>arr1(5);
+    
+//     for (int i = 0; i < 5; i++)
+//     {
+//         //利用尾插法向数组中插入数据
+//         arr1.Push_Back(i);
+//     }
+    
+//     cout << "arr1的打印输出: " << endl; 
+    
+//     printIntArray(arr1);
+//     cout << "arr1的容量为: " << arr1.getCapacity() << endl;
+//     cout << "arr1的大小为: " << arr1.getSize() << endl;
+
+//     MyArray <int>arr2(arr1);
+//     cout << "arr2的打印输出: " << endl;
+//     printIntArray(arr2);
+
+//     cout << "arr2的容量为: " << arr2.getCapacity() << endl;
+//     cout << "arr2的大小为: " << arr2.getSize() << endl;
+// }
+
+// class Person
+// {
+// public:
+//     Person();
+//     Person(string name, int age)
+//     {
+//         this->m_Name = name;
+//         this->m_Age = age;
+//     }
+
+//     string m_Name;
+//     int m_Age;
+// };
+
+// void printPersonArray(MyArray<Person>& arr)
+// {
+//     for (int i = 0; i < arr.getSize(); i++)
+//     {
+//         cout << "Name: " << arr[i].m_Name << endl << "Age: " << arr[i].m_Age << endl;
+//     }
+// }
+
+// void test2()
+// {
+//     MyArray<Person> arr(10);
+
+//     Person p1("wukong", 999);
+//     Person p2("hanxin", 20);
+//     Person p3("daji", 20);
+//     Person p4("zhaoyun", 25);
+//     Person p5("anqila", 27);
+    
+//     arr.Push_Back(p1);
+
+//     arr.Push_Back(p2);
+    
+//     arr.Push_Back(p3);
+    
+//     arr.Push_Back(p4);
+
+//     arr.Push_Back(p5);
+
+//     printPersonArray(arr);
+
+//     cout << "arr容量为: " << arr.getCapacity() << endl;
+//     cout << "arr大小为: " << arr.getSize() << endl;
+// }  
+
+// int main()
+// {
+//     test1();
+//     test2();
+//     return 0;
+// }
+
+
